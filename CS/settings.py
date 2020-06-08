@@ -25,7 +25,7 @@ SECRET_KEY = 'y0em!!ciiyl)#5s=h&ser8e8wzysj2$=7rofc1%uif#d@+mx_q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sotelocs.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
