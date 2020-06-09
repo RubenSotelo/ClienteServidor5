@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y0em!!ciiyl)#5s=h&ser8e8wzysj2$=7rofc1%uif#d@+mx_q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['sotelocs.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -52,6 +52,16 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'CS.urls'
+
+SITE_ID = 1
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 TEMPLATES = [
     {
@@ -120,8 +130,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-try:
-    from CS.local_settings import *
-except ImportError:
-    pass
