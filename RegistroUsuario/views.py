@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status,generics
 from django.contrib.auth.models import User
-from RegistroUsuario.serializer import RegistroUsuarioSerializer
+from RegistroUsuario.serializer import RegistroSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 
@@ -11,11 +11,11 @@ class SaveRegister(ObtainAuthToken,APIView):
 
     def get (self,request, format = None):
         queryset = User.objects.all() 
-        serializer = RegistroUsuarioSerializer(queryset, many = True)
+        serializer = RegistroSerializer(queryset, many = True)
         return Response(serializer.data)
     
     def post(self,request, format = None):
-        serializer = RegistroUsuarioSerializer(data = request.data)
+        serializer = RegistroSerializer(data = request.data)
         if serializer.is_valid():
             user = serializer.save()
             datas = serializer.data     
