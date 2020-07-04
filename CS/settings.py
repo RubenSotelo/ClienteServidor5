@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'Example1',
     'Example2',
     'Registro',
+    'RegistroUsuario',
 ]
 
 MIDDLEWARE = [
