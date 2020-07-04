@@ -23,7 +23,7 @@ class ExampleList(APIView):
             serializer.save()
             datas = serializer.data
             return Response(datas)
-'''            
+           
 class ExampleDetail(APIView):
     def get_object(self, id):
         try:
@@ -35,18 +35,18 @@ class ExampleDetail(APIView):
         print("GET Detail")
         example1 = self.get_object(id)
         if example1 == 404:
-            return Response(example1)
+            return Response("no hay datos")
         else:
             serializer = Example1Serializers(example1)
             return Response(serializer.data)
 
-    #def put(self, request, id, format=None):
-
-class ExampleCreate(APIView):
-    def post(self,request,*args,**kwargs):
-        form = RegisterBusinessForm(request.POST or None)
-        if form.is_valid():
-            self.object = form.save(commit = False)
-            self.object.set_password(self.object.password)
-            self.object.save()
-'''
+    def put(self, request, id, format=None):
+        print("GET Detail")
+        ejemplo = self.get_object(id)
+        if ejemplo == 404:
+            return Responce("no hay datos")
+        else:
+            serializer = Example1Serializers(ejemplo,data=request.data)
+            if serializer.save():
+                datos = serializer.data
+            return Response(datos)
