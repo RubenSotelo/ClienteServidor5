@@ -23,3 +23,30 @@ class ExampleList(APIView):
             serializer.save()
             datas = serializer.data
             return Response(datas)
+'''            
+class ExampleDetail(APIView):
+    def get_object(self, id):
+        try:
+            return Example1.objects.get(pk = id)
+        except Example1.DoesNotExist:
+            return 404
+
+    def get(self, request, format=None):
+        print("GET Detail")
+        example1 = self.get_object(id)
+        if example1 == 404:
+            return Response(example1)
+        else:
+            serializer = Example1Serializers(example1)
+            return Response(serializer.data)
+
+    #def put(self, request, id, format=None):
+
+class ExampleCreate(APIView):
+    def post(self,request,*args,**kwargs):
+        form = RegisterBusinessForm(request.POST or None)
+        if form.is_valid():
+            self.object = form.save(commit = False)
+            self.object.set_password(self.object.password)
+            self.object.save()
+'''
