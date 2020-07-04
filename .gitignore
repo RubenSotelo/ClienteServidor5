@@ -59,7 +59,8 @@ cubrir/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-
+settings.ini
+settings.env
 # Matraces:
 ejemplo/
 .webassets-cache
@@ -129,7 +130,6 @@ dmypy.json
 
 # Comprobador de tipo pira
 .pira/
-
 # pytype analizador de tipo estático
 .pytype /
 
