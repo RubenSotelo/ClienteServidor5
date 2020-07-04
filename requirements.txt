@@ -25,4 +25,4 @@ urllib3==1.24.3
 whitenoise
 Django==2.2.1
 django-rest-swagger
-python-decouple
+python-decouple==3.3
